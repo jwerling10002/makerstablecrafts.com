@@ -696,6 +696,18 @@
       transform: translateY(0);
     }
 
+    /* ── MENU IMAGE ── */
+    .menu-image-wrapper {
+      display: flex;
+      justify-content: center;
+    }
+    .menu-image {
+      max-width: 560px;
+      width: 100%;
+      border-radius: 4px;
+      box-shadow: 0 12px 40px rgba(92, 61, 46, 0.18);
+    }
+
     /* ── COMING SOON — shared ── */
     .coming-soon-wrapper {
       display: flex;
@@ -994,70 +1006,8 @@
         <div class="divider"></div>
         <p class="section-desc">Just like dining out, you choose your experience. Order a quick bite or settle in for the full course — we've got something for every crafter at the table.</p>
       </div>
-      <div class="menu-board reveal">
-        <div class="menu-price-badge">All Projects <span>$10</span></div>
-        <h2 class="menu-board-title">Today's Menu</h2>
-        <p class="menu-board-subtitle">Choose your craft — every seat at the table is welcome</p>
-        <div class="menu-grid">
-          <div class="menu-category">
-            <h3>🧱 Sculpt & Build</h3>
-            <div class="menu-item">
-              <div class="menu-item-left">
-                <div class="menu-item-name">Fremont Troll</div>
-                <div class="menu-item-desc">Make your own troll from under the bridge.</div>
-              </div>
-              <div class="menu-item-dots"></div>
-              <div class="menu-item-time">$10</div>
-            </div>
-            <div class="menu-item">
-              <div class="menu-item-left">
-                <div class="menu-item-name">3D Sculptural Design</div>
-                <div class="menu-item-desc">Roll it. Shape it. Make it yours.</div>
-              </div>
-              <div class="menu-item-dots"></div>
-              <div class="menu-item-time">$10</div>
-            </div>
-          </div>
-          <div class="menu-category">
-            <h3>🎨 Paint & Color</h3>
-            <div class="menu-item">
-              <div class="menu-item-left">
-                <div class="menu-item-name">Abstract Watercolor Postcard</div>
-                <div class="menu-item-desc">Modern, relaxing and so satisfying to do.</div>
-              </div>
-              <div class="menu-item-dots"></div>
-              <div class="menu-item-time">$10</div>
-            </div>
-            <div class="menu-item">
-              <div class="menu-item-left">
-                <div class="menu-item-name">Watercolor Blob Art Notecard</div>
-                <div class="menu-item-desc">Dynamic splatters of color become whimsical creatures.</div>
-              </div>
-              <div class="menu-item-dots"></div>
-              <div class="menu-item-time">$10</div>
-            </div>
-          </div>
-          <div class="menu-category">
-            <h3>✨ Craft & Create</h3>
-            <div class="menu-item">
-              <div class="menu-item-left">
-                <div class="menu-item-name">Birds on a Wire</div>
-                <div class="menu-item-desc">Tiny birds. Big personalities.</div>
-              </div>
-              <div class="menu-item-dots"></div>
-              <div class="menu-item-time">$10</div>
-            </div>
-            <div class="menu-item">
-              <div class="menu-item-left">
-                <div class="menu-item-name">Tinfoil Stained Glass</div>
-                <div class="menu-item-desc">Rub it and reveal the image with bold color.</div>
-              </div>
-              <div class="menu-item-dots"></div>
-              <div class="menu-item-time">$10</div>
-            </div>
-          </div>
-        </div>
-        <p class="menu-note">Six projects. Endless fun. <em>Which will you make?</em></p>
+      <div class="menu-image-wrapper reveal">
+        <img src="menu.png" alt="Makers' Table craft menu — six projects, all $10" class="menu-image" />
       </div>
     </div>
   </section>
