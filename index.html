@@ -8,18 +8,19 @@
   <style>
     :root {
       --cream: #fdf6ec;
-      --warm-white: #fefaf4;
-      --terracotta: #c0613a;
-      --terracotta-light: #d9805e;
-      --terracotta-dark: #9b4a28;
-      --forest: #3d5a45;
-      --forest-light: #527a5c;
+      --warm-white: #faf8ff;
+      --terracotta: #7272C2;
+      --terracotta-light: #9494D4;
+      --terracotta-dark: #5555A8;
+      --forest: #3D5A80;
+      --forest-light: #5278A8;
       --gold: #c49a3c;
       --gold-light: #e0b84a;
-      --brown: #5c3d2e;
-      --brown-light: #7a5544;
-      --ink: #2a1f14;
-      --muted: #8a7060;
+      --brown: #2D2B5E;
+      --brown-light: #5A5880;
+      --ink: #1A1840;
+      --muted: #7878A0;
+      --rainbow: linear-gradient(to right, #E05555, #E08030, #C8A828, #48A850, #4080C8, #7272C2, #A060C0);
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -55,7 +56,7 @@
       padding: 1rem 3rem;
       background: rgba(253, 246, 236, 0.92);
       backdrop-filter: blur(8px);
-      border-bottom: 1px solid rgba(192, 97, 58, 0.15);
+      border-bottom: 1px solid rgba(114, 114, 194, 0.2);
       transition: box-shadow 0.3s;
     }
     nav.scrolled { box-shadow: 0 2px 20px rgba(92, 61, 46, 0.12); }
@@ -66,6 +67,14 @@
       color: var(--terracotta);
       text-decoration: none;
       letter-spacing: 0.02em;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .nav-logo img {
+      height: 42px;
+      width: 42px;
+      object-fit: contain;
     }
     .nav-links { display: flex; gap: 2rem; list-style: none; }
     .nav-links a {
@@ -254,11 +263,11 @@
     }
 
     .divider {
-      width: 60px;
-      height: 2px;
-      background: linear-gradient(to right, var(--terracotta), var(--gold));
+      width: 80px;
+      height: 3px;
+      background: var(--rainbow);
       margin: 1.5rem auto;
-      border-radius: 1px;
+      border-radius: 2px;
     }
 
     /* ── MENU SECTION ── */
@@ -391,7 +400,7 @@
       top: 0; left: 0;
       width: 3px;
       height: 100%;
-      background: var(--terracotta);
+      background: var(--rainbow);
       transform: scaleY(0);
       transform-origin: bottom;
       transition: transform 0.25s ease;
@@ -512,7 +521,8 @@
     .about-quote {
       position: relative;
       padding: 1.5rem 1.75rem;
-      border-left: 3px solid var(--gold);
+      border-left: 3px solid transparent;
+      border-image: var(--rainbow) 1;
       background: rgba(196, 154, 60, 0.06);
       margin: 2rem 0;
     }
@@ -554,9 +564,14 @@
     .about-values .val-dot {
       width: 8px; height: 8px;
       border-radius: 50%;
-      background: var(--terracotta-light);
       flex-shrink: 0;
     }
+    .about-values li:nth-child(1) .val-dot { background: #E05555; }
+    .about-values li:nth-child(2) .val-dot { background: #E08030; }
+    .about-values li:nth-child(3) .val-dot { background: #C8A828; }
+    .about-values li:nth-child(4) .val-dot { background: #48A850; }
+    .about-values li:nth-child(5) .val-dot { background: #4080C8; }
+    .about-values li:nth-child(6) .val-dot { background: #A060C0; }
     .float-tag {
       position: absolute;
       top: -1.2rem;
@@ -957,7 +972,7 @@
 
   <!-- NAV -->
   <nav id="navbar">
-    <a href="#hero" class="nav-logo">Makers' Table</a>
+    <a href="#hero" class="nav-logo"><img src="logo.png" alt="Makers' Table logo" />Makers' Table</a>
     <ul class="nav-links">
       <li><a href="#menu">The Menu</a></li>
       <li><a href="#kits">Craft Kits</a></li>
