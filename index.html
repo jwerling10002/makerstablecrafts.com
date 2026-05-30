@@ -544,6 +544,87 @@
     }
     .private-email:hover { color: white; }
 
+    /* ── CAROUSEL ── */
+    #gallery {
+      background: var(--warm-white);
+      padding: 5rem 0;
+      overflow: hidden;
+    }
+
+    .carousel-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .carousel-track-wrapper {
+      position: relative;
+      overflow: hidden;
+      border-radius: 4px;
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .carousel-slide {
+      min-width: 100%;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+    }
+
+    .carousel-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .carousel-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .carousel-btn {
+      background: rgba(114, 114, 194, 0.15);
+      border: 1.5px solid rgba(114, 114, 194, 0.3);
+      color: var(--terracotta);
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      font-size: 1.1rem;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s, transform 0.15s;
+      line-height: 1;
+    }
+    .carousel-btn:hover {
+      background: rgba(114, 114, 194, 0.28);
+      transform: scale(1.08);
+    }
+
+    .carousel-dots {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .carousel-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: rgba(114, 114, 194, 0.25);
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      padding: 0;
+    }
+    .carousel-dot.active {
+      background: var(--terracotta);
+      transform: scale(1.25);
+    }
+
     /* ── ABOUT ── */
     #about {
       background-color: var(--cream);
@@ -1001,6 +1082,7 @@
       <li><a href="#kits">Craft Kits</a></li>
       <li><a href="#events">Events</a></li>
       <li><a href="#private">Private Events</a></li>
+      <li><a href="#gallery">Gallery</a></li>
       <li><a href="#about">Our Story</a></li>
       <li><a href="#contact">Get in Touch</a></li>
     </ul>
@@ -1013,6 +1095,7 @@
     <a href="#kits"    onclick="closeMobile()">Craft Kits</a>
     <a href="#events"  onclick="closeMobile()">Events</a>
     <a href="#private" onclick="closeMobile()">Private Events</a>
+    <a href="#gallery" onclick="closeMobile()">Gallery</a>
     <a href="#about"   onclick="closeMobile()">Our Story</a>
     <a href="#contact" onclick="closeMobile()">Get in Touch</a>
   </div>
@@ -1324,6 +1407,45 @@
     </div>
   </section>
 
+  <!-- GALLERY -->
+  <section id="gallery">
+    <div class="carousel-inner reveal">
+      <div class="section-header" style="padding: 0 0 2.5rem;">
+        <span class="section-eyebrow">See What We Make</span>
+        <h2 class="section-title">From the <em>Table</em></h2>
+        <div class="divider"></div>
+      </div>
+
+      <div class="carousel-track-wrapper">
+        <div class="carousel-track" id="carouselTrack">
+          <div class="carousel-slide">
+            <img src="blobart.jpeg" alt="Watercolor blob art notecards" />
+          </div>
+          <div class="carousel-slide">
+            <img src="tinfoil.jpeg" alt="Tinfoil stained glass craft" />
+          </div>
+          <div class="carousel-slide">
+            <img src="watercolors.jpeg" alt="Watercolor painting in progress" />
+          </div>
+          <div class="carousel-slide">
+            <img src="watercolors2.jpeg" alt="Finished watercolor pieces" />
+          </div>
+        </div>
+      </div>
+
+      <div class="carousel-controls">
+        <button class="carousel-btn" id="prevBtn" aria-label="Previous">&#8592;</button>
+        <div class="carousel-dots" id="carouselDots">
+          <button class="carousel-dot active" data-index="0"></button>
+          <button class="carousel-dot" data-index="1"></button>
+          <button class="carousel-dot" data-index="2"></button>
+          <button class="carousel-dot" data-index="3"></button>
+        </div>
+        <button class="carousel-btn" id="nextBtn" aria-label="Next">&#8594;</button>
+      </div>
+    </div>
+  </section>
+
   <!-- ABOUT -->
   <section id="about">
     <div class="about-inner">
@@ -1460,6 +1582,25 @@
     }, { threshold: 0.12 });
 
     reveals.forEach(el => observer.observe(el));
+
+    // Carousel
+    const track = document.getElementById('carouselTrack');
+    const dots = document.querySelectorAll('.carousel-dot');
+    let current = 0;
+    const total = 4;
+
+    function goTo(index) {
+      current = (index + total) % total;
+      track.style.transform = `translateX(-${current * 100}%)`;
+      dots.forEach((d, i) => d.classList.toggle('active', i === current));
+    }
+
+    document.getElementById('prevBtn').addEventListener('click', () => goTo(current - 1));
+    document.getElementById('nextBtn').addEventListener('click', () => goTo(current + 1));
+    dots.forEach(dot => dot.addEventListener('click', () => goTo(+dot.dataset.index)));
+
+    // Auto-advance every 5 seconds
+    setInterval(() => goTo(current + 1), 5000);
   </script>
 
 </body>
