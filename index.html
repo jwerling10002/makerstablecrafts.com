@@ -35,16 +35,6 @@
       overflow-x: hidden;
     }
 
-    /* ── TEXTURE OVERLAY ── */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-      pointer-events: none;
-      z-index: 1000;
-      opacity: 0.5;
-    }
 
     /* ── NAV ── */
     nav {
@@ -56,7 +46,6 @@
       align-items: center;
       padding: 1rem 3rem;
       background: rgba(253, 246, 236, 0.92);
-      backdrop-filter: blur(8px);
       border-bottom: 1px solid rgba(114, 114, 194, 0.2);
       transition: box-shadow 0.3s;
     }
@@ -936,68 +925,6 @@
     .coming-soon-box.fiber .coming-soon-label { color: var(--terracotta); position: relative; z-index: 1; }
     .coming-soon-box.fiber .coming-soon-desc { color: var(--brown-light); position: relative; z-index: 1; }
 
-    /* ── CLAY / CERAMIC (Events) ── */
-    .coming-soon-box.clay {
-      padding: 1.75rem 2.25rem;
-      max-width: 420px;
-      background: linear-gradient(160deg, #e8c4a8 0%, #ddb896 40%, #d4ad8a 70%, #c9a07c 100%);
-      border-radius: 14px 18px 12px 16px / 16px 12px 18px 14px;
-      border: none;
-      box-shadow:
-        inset 0 2px 6px rgba(255,255,255,0.25),
-        inset -2px -3px 8px rgba(80,60,40,0.15),
-        inset 1px 1px 20px rgba(80,60,40,0.1),
-        4px 8px 24px rgba(92,61,46,0.22);
-      clip-path: polygon(
-        0% 4%, 2% 2%, 4% 5%, 6% 1%, 8% 4%, 10% 2%, 12% 5%, 14% 1%, 16% 4%,
-        18% 2%, 20% 5%, 22% 1%, 24% 3%, 26% 1%, 28% 4%, 30% 2%, 32% 5%,
-        34% 1%, 36% 4%, 38% 2%, 40% 5%, 42% 1%, 44% 3%, 46% 1%, 48% 4%,
-        50% 2%, 52% 5%, 54% 1%, 56% 4%, 58% 2%, 60% 5%, 62% 1%, 64% 3%,
-        66% 1%, 68% 4%, 70% 2%, 72% 5%, 74% 1%, 76% 4%, 78% 2%, 80% 5%,
-        82% 1%, 84% 3%, 86% 1%, 88% 4%, 90% 2%, 92% 5%, 94% 1%, 96% 3%, 98% 2%, 100% 4%,
-        99% 20%, 100% 35%, 99% 50%, 100% 65%, 99% 80%, 100% 96%,
-        98% 99%, 96% 97%, 94% 100%, 92% 97%, 90% 100%, 88% 97%, 86% 99%,
-        84% 97%, 82% 100%, 80% 97%, 78% 99%, 76% 97%, 74% 100%, 72% 97%,
-        70% 99%, 68% 97%, 66% 100%, 64% 97%, 62% 99%, 60% 97%, 58% 100%,
-        56% 97%, 54% 99%, 52% 97%, 50% 100%, 48% 97%, 46% 99%, 44% 97%,
-        42% 100%, 40% 97%, 38% 99%, 36% 97%, 34% 100%, 32% 97%, 30% 99%,
-        28% 97%, 26% 100%, 24% 97%, 22% 99%, 20% 97%, 18% 100%, 16% 97%,
-        14% 99%, 12% 97%, 10% 100%, 8% 97%, 6% 99%, 4% 97%, 2% 100%, 0% 97%,
-        1% 80%, 0% 65%, 1% 50%, 0% 35%, 1% 20%
-      );
-      background-image:
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='clay'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='6' seed='8' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0.3'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23clay)' opacity='0.12'/%3E%3C/svg%3E"),
-        linear-gradient(160deg, #e8c4a8 0%, #ddb896 40%, #d4ad8a 70%, #c9a07c 100%);
-    }
-    .coming-soon-box.clay:hover { transform: rotate(0deg); }
-    /* subtle top highlight like a clay rim */
-    .coming-soon-box.clay::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 5%; right: 5%;
-      height: 3px;
-      background: linear-gradient(to right, transparent, rgba(255,255,255,0.4), transparent);
-      border-radius: 50%;
-    }
-    /* subtle bottom shadow like a clay base */
-    .coming-soon-box.clay::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 8%; right: 8%;
-      height: 3px;
-      background: linear-gradient(to right, transparent, rgba(80,50,30,0.15), transparent);
-      border-radius: 50%;
-    }
-    .coming-soon-box.clay .coming-soon-label { color: #5c3d2e; }
-    .coming-soon-box.clay .coming-soon-desc { color: #6b4f3a; }
-
-    .clay-texture {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      border-radius: inherit;
-      overflow: hidden;
-    }
 
     .about-photo-frame {
       position: relative;
@@ -1057,8 +984,7 @@
       position: fixed;
       top: 57px; left: 0; right: 0;
       background: rgba(253,246,236,0.98);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid rgba(192,97,58,0.15);
+      border-bottom: 1px solid rgba(114, 114, 194, 0.2);
       z-index: 899;
       padding: 1.5rem 2rem;
       flex-direction: column;
