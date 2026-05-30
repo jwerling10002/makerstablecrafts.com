@@ -999,6 +999,28 @@
       overflow: hidden;
     }
 
+    .about-photo-frame {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      margin: 2rem auto 0;
+    }
+    .about-photo-ring {
+      position: absolute;
+      inset: -14px;
+      width: calc(100% + 28px);
+      height: calc(100% + 28px);
+      pointer-events: none;
+    }
+    .about-photo {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center 15%;
+      display: block;
+    }
+
     .about-signoff {
       font-family: 'Architects Daughter', cursive;
       font-size: 1.6rem;
@@ -1468,6 +1490,20 @@
 
         <p>We want to bring our kitchen table to you, with all the love, joy, and creative hilarity it gave us. Come pull up a chair and see where the crafts take you.</p>
 
+        <div class="about-photo-frame">
+          <svg class="about-photo-ring" viewBox="0 0 228 228" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <filter id="paintRing" x="-10%" y="-10%" width="120%" height="120%">
+                <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="3" seed="9" result="noise"/>
+                <feDisplacementMap in="SourceGraphic" in2="noise" scale="4" xChannelSelector="R" yChannelSelector="G"/>
+              </filter>
+            </defs>
+            <circle cx="114" cy="114" r="108" fill="none" stroke="#7272C2" stroke-width="5" opacity="0.55" filter="url(#paintRing)"/>
+            <circle cx="114" cy="114" r="102" fill="none" stroke="#9494D4" stroke-width="3" opacity="0.3"  filter="url(#paintRing)"/>
+            <circle cx="114" cy="114" r="114" fill="none" stroke="#A060C0" stroke-width="2" opacity="0.2"  filter="url(#paintRing)"/>
+          </svg>
+          <img src="jandk.jpeg" alt="Jamieson and Kim" class="about-photo" />
+        </div>
         <p class="about-signoff">Can't wait to see what you'll create.<br>— Jamieson & Kim</p>
       </div>
 
