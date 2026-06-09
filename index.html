@@ -467,10 +467,17 @@
         var(--cream);
     }
 
-    .private-grid {
+    .private-featured-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.75rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .private-other-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.5rem;
+      gap: 1.75rem;
       margin-bottom: 3.5rem;
     }
 
@@ -494,16 +501,50 @@
       height: 3px;
       background: var(--rainbow);
     }
+    .private-card-icon {
+      font-size: 1.8rem;
+      margin-bottom: 0.75rem;
+      line-height: 1;
+    }
     .private-card h3 {
       font-family: 'Playfair Display', serif;
-      font-size: 1.15rem;
+      font-size: 1.2rem;
       color: var(--ink);
       margin-bottom: 0.6rem;
+    }
+    .private-card .tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--terracotta);
+      margin-bottom: 0.75rem;
     }
     .private-card p {
       font-size: 0.87rem;
       color: var(--muted);
       line-height: 1.7;
+    }
+    .private-card .perks {
+      list-style: none;
+      margin-top: 1.1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+    .private-card .perks li {
+      font-size: 0.83rem;
+      color: var(--brown-light);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      line-height: 1.5;
+    }
+    .private-card .perks li::before {
+      content: '✦';
+      color: var(--gold);
+      font-size: 0.6rem;
+      margin-top: 0.35em;
+      flex-shrink: 0;
     }
 
     .private-cta {
@@ -532,6 +573,10 @@
       transition: color 0.2s;
     }
     .private-email:hover { color: white; }
+
+    @media (max-width: 768px) {
+      .private-featured-grid { grid-template-columns: 1fr; }
+    }
 
     /* ── CAROUSEL ── */
     #gallery {
@@ -1087,26 +1132,65 @@
     <div class="section-inner">
       <div class="section-header reveal">
         <span class="section-eyebrow">Bring Us to Your People</span>
-        <h2 class="section-title">Private Events <em>&amp; Partnerships</em></h2>
+        <h2 class="section-title">Private <em>Celebrations</em></h2>
         <div class="divider"></div>
-        <p class="section-desc">Whether it's a birthday party, a team gathering, a school night, or something we haven't even thought of yet — we'd love to bring the table to you.</p>
+        <p class="section-desc">We set up the table, bring all the supplies, and guide everyone through the craft — you just show up and celebrate. We specialize in the moments that matter most.</p>
       </div>
 
-      <div class="private-grid reveal">
+      <div class="private-featured-grid reveal">
+
         <div class="private-card">
-            <h3>Birthday Parties</h3>
-          <p>Make the birthday table the craft table. We bring everything — supplies, instructions, and good energy. You bring the cake.</p>
+          <div class="private-card-icon">🎂</div>
+          <h3>Birthday Parties</h3>
+          <p class="tagline">Make the birthday table the craft table.</p>
+          <p>Kids and adults alike love leaving a birthday party with something they made themselves. We bring the supplies, the instructions, and the good energy — you bring the cake.</p>
+          <ul class="perks">
+            <li>Great for all ages, kids through adults</li>
+            <li>Everyone goes home with a finished piece</li>
+            <li>Works in your home, a park, or a rented space</li>
+            <li>We handle setup and cleanup</li>
+          </ul>
         </div>
+
         <div class="private-card">
-            <h3>Team &amp; Corporate</h3>
-          <p>Hands-on making is a surprisingly great way to connect a team. We can set up in your office, a rented space, or wherever your people gather.</p>
+          <div class="private-card-icon">🥂</div>
+          <h3>Bachelorette &amp; Bachelor Parties</h3>
+          <p class="tagline">A craft hour that gets everyone talking.</p>
+          <p>Ditch the predictable itinerary. A Makers' Table session is a surprisingly fun way to kick off a celebration — something hands-on, personal, and a little unexpected.</p>
+          <ul class="perks">
+            <li>A relaxed, social activity the whole group can enjoy</li>
+            <li>Customizable projects to fit your vibe</li>
+            <li>Makes a beautiful keepsake for the guest of honor</li>
+            <li>Works as a standalone event or part of a bigger night</li>
+          </ul>
         </div>
+
         <div class="private-card">
-            <h3>Schools &amp; Community Groups</h3>
+          <div class="private-card-icon">🌸</div>
+          <h3>Baby Showers</h3>
+          <p class="tagline">Make something meaningful for the little one.</p>
+          <p>Instead of another party game, give guests a chance to make something for the baby — or for themselves to remember the day. It's a sweet, warm activity that fits perfectly into a shower's pace.</p>
+          <ul class="perks">
+            <li>Gentle, creative energy that fits the vibe</li>
+            <li>Options for guests to make a gift for the baby</li>
+            <li>Works beautifully indoors in any size space</li>
+            <li>Memorable activity guests will talk about after</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="private-other-grid reveal">
+        <div class="private-card">
+          <h3>Schools &amp; Community Groups</h3>
           <p>We're passionate about getting crafting into communities. Reach out and let's talk about what a partnership could look like.</p>
         </div>
         <div class="private-card">
-            <h3>Something Else?</h3>
+          <h3>Team &amp; Corporate</h3>
+          <p>Hands-on making is a surprisingly great way to connect a team. We can set up in your office, a rented space, or wherever your people gather.</p>
+        </div>
+        <div class="private-card">
+          <h3>Something Else?</h3>
           <p>We're open to ideas. If you've got a group of people who'd love to make something together, we want to hear about it.</p>
         </div>
       </div>
